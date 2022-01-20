@@ -65,3 +65,5 @@ group :development do
 end
 
 gem "rspec-rails", "~> 5.0"
+
+gem "byebug", "~> 11.1"

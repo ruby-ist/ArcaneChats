@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_many :messages
   before_commit {self.name = self.name.downcase!}
   validates :name, uniqueness: { message: "That username is already taken"}
   validates :name, presence: { message: "Username cannot be empty!"}

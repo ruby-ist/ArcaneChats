@@ -1,5 +1,7 @@
 <% @users.each do |user| %>
-	<p><%= user.name %></p>
+	<% unless user == current_user %>
+		<p><%= link_to user.name, user_path(user) %></p>
+	<% end %>
 <% end %>
 
 <% if logged_in? %>

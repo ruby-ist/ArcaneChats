@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+
   def index
     unless logged_in?
       flash[:notice] = "You must log in first!"
@@ -22,6 +23,11 @@ class UsersController < ApplicationController
         format.html{ render :new}
       end
     end
+  end
+
+  def show
+    @user = User.find(params[:id])
+    @messages = Message.where(user_id: current_user.id, send_to_id: @user.id).or(Message.where(user_id: @user.id, send_to_id: current_user.id))
   end
 
 
