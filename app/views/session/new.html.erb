@@ -1,0 +1,11 @@
+<h3>Sign In</h3>
+
+<div id="user-form">
+	<%= render partial: "users/form", locals: {user: @user, button: "Log In"} %>
+</div>
+
+<p>New user? <%= link_to "Sign Up", signup_path %></p>
+
+<div id="invalid-cred">
+	<%= render partial: "session/invalid" %>
+</div>

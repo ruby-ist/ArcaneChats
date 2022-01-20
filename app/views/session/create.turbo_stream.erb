@@ -1,0 +1,2 @@
+<%= turbo_stream.replace("user-form", partial: "users/form", locals: {user: User.new, button: "login"}) %>
+<%= turbo_stream.replace("invalid-cred", partial: "session/invalid") %>

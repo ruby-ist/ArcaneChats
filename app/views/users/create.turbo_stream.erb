@@ -1,0 +1,2 @@
+<%= turbo_stream.replace("user-form", partial: "users/form", locals: {user: @user, button: "Sign Up"}) %>
+<%= turbo_stream.update("user-errors", partial: "users/errors", locals: {user: @user}) %>

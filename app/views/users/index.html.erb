@@ -1,0 +1,9 @@
+<% @users.each do |user| %>
+	<p><%= user.name %></p>
+<% end %>
+
+<% if logged_in? %>
+	<%= link_to "Log Out", logout_path%>
+<% else %>
+	<%= link_to "Log in", login_path %>
+<% end %>
