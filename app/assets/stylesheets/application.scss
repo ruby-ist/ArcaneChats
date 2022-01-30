@@ -1,0 +1,427 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue&family=Outfit:wght@300;400&family=Overpass&family=Pompiere&family=Special+Elite&display=swap');
+
+.field_with_errors{
+    display: inline;
+}
+
+$red: #DA0037;
+$dull-red: #DA003733;
+$dull-black: #17171752;
+$shaded-red: #BE3144;
+$black: #171717;
+$grey1: #444444;
+$grey2: #303841;
+$dark-blue: #30475E;
+$blue: #53779C;
+$white: #D3D6DB;
+
+a{
+  color: black;
+  text-decoration: none;
+
+  &:hover, &:focus, &:active{
+    color: black;
+  }
+}
+
+body{
+  background: -webkit-linear-gradient(#232931, #444444);
+  font-family: 'Outfit', sans-serif;
+}
+
+.main{
+  width: 100%;
+  height: 100vh;
+  background: $black;
+  position: relative;
+  overflow-y: hidden;
+
+}
+
+.flash{
+  background: $dark-blue;
+  font-family: 'Special Elite', cursive;
+  margin-bottom: 0;
+  color: $black;
+  font-size: 0.8rem;
+}
+
+.nav{
+  width: 100%;
+  display: flex;
+  padding: 0 8%;
+  background: $red;
+  font-family: 'Pompiere', cursive;
+  color: #D3D6DB;
+  font-size: 250%;
+  align-items: center;
+  position: fixed;
+  z-index: 2;
+}
+
+.user-nav{
+  padding-left: 4%;
+}
+
+.nav-btn, .menu-btn {
+  position: absolute;
+  right: 3%;
+
+  a {
+    display: flex;
+    align-content: center;
+  }
+}
+
+.nav-btn {
+  &:focus, &:active, &:hover {
+    svg {
+      g {
+        fill: $white;
+      }
+    }
+  }
+}
+
+.menu-btn {
+  &:focus, &:active {
+    svg {
+      g {
+        fill: $black;
+      }
+    }
+  }
+}
+
+.dropdown{
+  background: $grey2;
+  display: inline-block;
+  position: absolute;
+  z-index: 3;
+  top: 5%;
+  right: 0;
+  border-radius: 3px;
+  padding: 3% 5%;
+  text-align: center;
+  visibility: hidden;
+
+  a {
+    color: $white;
+
+    &:active, &:focus, &:hover{
+      color: $red;
+    }
+  }
+}
+
+.show{
+  visibility: visible;
+}
+
+.back-btn{
+  margin-right: 2%;
+  display: flex;
+  align-content: center;
+
+  &:active, &:focus, &:hover{
+    svg{
+      g{
+        fill: $black;
+      }
+    }
+  }
+}
+
+.dummy-nav{
+  display: flex;
+  padding: 0 8%;
+  background: $red;
+  font-family: 'Pompiere', cursive;
+  color: #D3D6DB;
+  font-size: 250%;
+  align-content: center;
+  visibility: hidden;
+}
+
+.app-title{
+  color: $white;
+  padding: 2% 0;
+}
+
+.user-title{
+  color: $black;
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.7rem;
+  padding-bottom: -3%;
+  display: flex;
+  align-content: center;
+
+  span{
+    height: 38px;
+  }
+}
+
+.boxes{
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.user-box{
+  padding: 4% 9% 5%;
+  border-bottom: 1px solid $grey1;
+  background: $black;
+  position: relative;
+}
+
+.index-user-name{
+  color: $shaded-red;
+  font-family: 'Overpass', sans-serif;
+  font-size: 125%;
+}
+
+.last-message{
+  font-size: 0.9rem;
+  height: 1rem;
+  color: $grey1;
+}
+
+.last-msg-user{
+  color: $dark-blue;
+}
+
+.last-msg-time{
+  color: $white;
+  position: absolute;
+  right: 6%;
+  top: 20%;
+  font-size: 0.7rem;
+}
+
+.msg-alert{
+  position: absolute;
+  right: 7%;
+  top: 55%;
+  background: $red;
+  color: $white;
+  font-size: 0.9rem;
+  padding: 0 0.45rem;
+  border-radius: 50%;
+}
+
+.new-msg{
+  .msg-content{
+    color: $white;
+  }
+
+  .last-msg-user{
+    color: $blue;
+  }
+}
+
+.contents{
+  height: 90vh;
+}
+
+.convo{
+  padding: 4%;
+  overflow-y: scroll;
+  height: 90%;
+}
+
+.convo::-webkit-scrollbar {
+  display: none;
+}
+
+.convo {
+  scrollbar-width: none;
+}
+
+.msg-box{
+  text-align: right;
+}
+
+.theirs{
+  text-align: left;
+}
+
+.message{
+  border: 1px solid black;
+  display: inline-block;
+  padding: 3px 45px 3px 10px;
+  border-radius: 7px;
+  font-size: 1.2rem;
+  font-weight: 300;
+  background: $red;
+  color: $white;
+  max-width: 80%;
+  word-break: break-word;
+  position: relative;
+}
+
+.msg-time{
+  position: absolute;
+  font-size: 0.5rem;
+  bottom: 2px;
+  right: 4px;
+}
+
+.theirs{
+  .message{
+    background: $grey2;
+  }
+}
+
+
+.msg-form{
+  padding: 2% 4%;
+  position: relative;
+}
+
+.blocked-msg{
+  text-align: center;
+  color: $red;
+}
+
+.send-box{
+  width: 100%;
+  padding: 2% 5%;
+  background: $grey2;
+  color: $white;
+  border: none;
+  border-radius: 30px;
+  font-size: 1.2rem;
+  font-weight: 300;
+
+  &:focus, &:active{
+    outline: none;
+  }
+}
+
+.send-btn{
+  position: absolute;
+  right: 5%;
+  top: 27%;
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+}
+
+.form-box{
+  margin: auto ;
+  padding: 30% 5% 5%;
+  width: 80%;
+  border-radius: 5px;
+  color: white;
+  font-size: 1.6rem;
+
+  h3{
+    text-align: center;
+  }
+
+}
+
+.form-label{
+  color: $red;
+  font-size: 2rem;
+  font-family: 'Pompiere', cursive;
+}
+
+.input-field{
+  padding: 2%;
+  border: none;
+  border-bottom: 2px solid $grey1;
+  width: 100%;
+  color: $white;
+  background: transparent;
+  font-weight: 300;
+
+  &:focus{
+    outline: none;
+  }
+}
+
+.form-errors{
+  color: $red;
+  font-size: 0.75rem;
+  font-family: 'Special Elite', cursive;
+}
+
+.other-link{
+  font-size: 1rem;
+  color: $grey2;
+
+  a{
+    color: $blue;
+  }
+}
+
+.btn-cover{
+  display: block;
+  text-align: center;
+}
+
+.submit-btn{
+  border: none;
+  background: -webkit-linear-gradient(45deg, $red, #F05454);
+  margin: auto;
+  border-radius: 11px;
+  font-family:  'Pompiere', cursive;
+  padding: 5px 15px;
+  color: $white;
+
+  &:hover{
+    color: $grey1;
+  }
+
+  &:active, &:focus{
+    color: $black;
+  }
+}
+
+.copyright{
+  font-family: 'Comic Neue', cursive;
+  font-size: 0.75rem;
+  color: $white;
+  margin-top: 40%;
+  text-align: center;
+}
+
+.contents{
+  background: -webkit-linear-gradient(300deg, $dull-red, $dull-black), url("pattern.svg");
+}
+
+
+@media only screen and (min-width: 480px) {
+  .main {
+    max-width: 480px;
+    margin: 0 auto;
+    border: 2px solid black;
+    position: relative;
+  }
+
+  .nav{
+    width: 480px;
+    top: 0;
+  }
+
+  .contents{
+    height: 80%;
+  }
+}
+

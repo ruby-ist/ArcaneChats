@@ -7,7 +7,11 @@ Rails.application.routes.draw do
     resources :messages
   end
   get "signup", to: "users#new"
+  post "users/new", to: "users#create"
   get "login", to: "session#new"
   post "login", to: "session#create"
   get "logout", to: "session#destroy"
+  get "update", to: "users#update_list"
+  get "users/:id/block", to: "users#toggle_block", as: :block_user
 end
+

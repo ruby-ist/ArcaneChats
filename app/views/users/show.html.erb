@@ -1,0 +1,39 @@
+<div class="dropdown" id="dropdown">
+	<div class="menu-item"><%= link_to @blocked ? "Unblock user" : "Block user", block_user_path(@user) %></div>
+</div>
+
+<%= turbo_stream_from "messages" %>
+<div class="convo" data-controller="scroll">
+	<div data-controller="height"></div>
+	<%= turbo_frame_tag "messages" do %>
+		<%= render @messages %>
+	<% end %>
+</div>
+
+<div class="msging-box">
+	<div class="msg-form">
+		<% if @blocked %>
+			<div class="blocked-msg">This conversation has been blocked</div>
+		<% else %>
+			<%= form_with model: [current_user, current_user.messages.build] do |f| %>
+				<%= hidden_field_tag :send_to_id, @user.id %>
+				<%= f.text_field :content, class: "send-box", placeholder: "Type Something..." , autocomplete: 'off', spellcheck: 'false'%>
+				<%= f.button class: "send-btn" do %>
+					<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+						 width="26" height="26"
+						 viewBox="0 0 172 172"
+						 style=" fill:#000000;">
+						<g transform="">
+							<g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-size="none" style="mix-blend-mode: normal">
+								<path d="M0,172v-172h172v172z" fill="none"></path>
+								<g fill="#da0037">
+									<path d="M10.07813,10.16211l20.24024,65.08789h130.93164zM30.31836,86l-20.24024,65.0459l151.17188,-65.0459z"></path>
+								</g>
+							</g>
+						</g>
+					</svg>
+				<% end %>
+			<% end %>
+		<% end %>
+	</div>
+</div>

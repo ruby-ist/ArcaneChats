@@ -1,9 +1,22 @@
-<%= form_with model: user do |f| %>
-	<%= f.label :name %>:<br/>
-	<%= f.text_field :name %><br/>
+<%= form_with method: user do |f| %>
+	<span class="form-label"><%= f.label :name %>:</span><br/>
+	<%= f.text_field :name, class: "input-field", autocomplete: 'off', spellcheck: 'false'%><br/>
 	<br/>
-	<%= f.label :password %>:<br/>
-	<%= f.password_field :password %><br/>
+	<span class="form-label"><%= f.label :password %>:</span><br/>
+	<%= f.password_field :password, class: "input-field" , autocomplete: 'off', spellcheck: 'false'%><br/>
 	<br/>
-	<%= f.submit button %>
+	<div class='form-errors'>
+		<div id="invalid-cred"><%= render partial: "session/invalid" %></div>
+		<div id="user-errors"><%= render partial: "users/errors", locals: { user: user } if user %></div>
+	</div>
+	<div class="other-link">
+	<% if button == 'Log In' %>
+		<p>New user? <%= link_to "Register", signup_path %></p>
+	<% else %>
+		<p>Already have an account? <%= link_to "Log In", login_path %></p>
+	<% end %>
+	</div>
+	<div class="btn-cover"><%= f.submit button, class: "submit-btn" %></div>
 <% end %>
+
+<p class="copyright">Copyrights © Sriram V 2022</p>

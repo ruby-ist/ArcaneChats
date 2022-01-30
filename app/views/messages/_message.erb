@@ -1,0 +1,7 @@
+<% name = user_name(message.user_id) %>
+<div class="msg-box <%= "theirs" unless name == "You" %>">
+	<div class="message">
+		<%= message.content %>
+		<div class="msg-time"><%= message.created_at.in_time_zone('Chennai').strftime("%I:%M %p") %></div>
+	</div>
+</div>

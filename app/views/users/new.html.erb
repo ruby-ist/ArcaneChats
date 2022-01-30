@@ -1,8 +1,5 @@
-<h3>Sign Up</h3>
-<div id="user-errors">
-	<%= render partial: "users/errors", locals: {user: @user} %>
-</div>
-
-<div id="user-form">
-	<%= render partial: "users/form", locals: {user: @user, button: "Sign Up"} %>
+<div class="form-box">
+	<div id="user-form">
+		<%= render partial: "users/form", locals: { user: @user, button: "Sign Up" } %>
+	</div>
 </div>

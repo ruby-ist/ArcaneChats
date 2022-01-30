@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_20_104217) do
+ActiveRecord::Schema.define(version: 2022_01_23_115926) do
 
   create_table "messages", force: :cascade do |t|
     t.string "content"
@@ -20,11 +20,21 @@ ActiveRecord::Schema.define(version: 2022_01_20_104217) do
     t.integer "send_to_id"
   end
 
+  create_table "seens", force: :cascade do |t|
+    t.datetime "last_seen", precision: 6
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
+    t.integer "other_user_id"
+    t.boolean "blocked", default: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "password_digest"
+    t.boolean "banned", default: false
   end
 
 end

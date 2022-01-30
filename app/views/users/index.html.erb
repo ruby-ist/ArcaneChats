@@ -1,11 +1,4 @@
-<% @users.each do |user| %>
-	<% unless user == current_user %>
-		<p><%= link_to user.name, user_path(user) %></p>
-	<% end %>
-<% end %>
+<div id="users" data-controller='hello'>
+	<%= render "users/users", seens: @seens %>
+</div>
 
-<% if logged_in? %>
-	<%= link_to "Log Out", logout_path%>
-<% else %>
-	<%= link_to "Log in", login_path %>
-<% end %>
