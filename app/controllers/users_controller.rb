@@ -29,6 +29,7 @@ class UsersController < ApplicationController
     @title = @user.name
     @messages = convo_messages current_user.id, @user.id
     @blocked = Seen.find_or_create_by(user: current_user, other_user: @user).blocked
+    @been_blocked = Seen.find_or_create_by(user: @user, other_user: current_user).blocked
     update_last_seen current_user.id, @user.id
   end
 

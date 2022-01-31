@@ -12,7 +12,7 @@
 
 <div class="msging-box">
 	<div class="msg-form" data-controller="prevent">
-		<% if @blocked %>
+		<% if @blocked || @been_blocked %>
 			<div class="blocked-msg">This conversation has been blocked</div>
 		<% else %>
 			<%= form_with model: [current_user, current_user.messages.build] do |f| %>
