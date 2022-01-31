@@ -2,7 +2,7 @@
 	<div class="menu-item"><%= link_to @blocked ? "Unblock user" : "Block user", block_user_path(@user) %></div>
 </div>
 
-<%= turbo_stream_from "messages" %>
+<%#= turbo_stream_from "messages" %>
 <div class="convo" data-controller="scroll">
 	<div data-controller="height"></div>
 	<%= turbo_frame_tag "messages" do %>
