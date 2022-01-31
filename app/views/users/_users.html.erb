@@ -4,7 +4,7 @@
 			<div class="user-box">
 				<div class="index-user-name"><%= user.name %></div>
 				<% if message = last_message(user.id) %>
-					<% new = seens.detect{ _1.other_user_id == user.id}.last_seen < message.created_at %>
+					<% new = @seens.detect{ _1.other_user_id == user.id}.last_seen < message.created_at %>
 					<div class="last-message <%= "new-msg" if new %>">
 						<span class="last-msg-user"><%= user_name(message.user_id) %></span>: <span class="msg-content"><%= message.content.truncate(25) %></span>
 						<div class="last-msg-time"><%= message.created_at.in_time_zone('Chennai').strftime "%l:%M %p" %></div>
