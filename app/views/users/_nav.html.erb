@@ -1,0 +1,57 @@
+<div class="nav <%= "user-nav" if title != "ArcaneChats" %>">
+	<% if title != "ArcaneChats" %>
+		<%= link_to users_path, class: "back-btn" do %>
+			<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+				 width="32" height="32"
+				 viewBox="0 0 226 226"
+				 style=" fill:#000000;">
+				<g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-size="none" style="mix-blend-mode: normal">
+					<path d="M0,226v-226h226v226z" fill="none"></path>
+					<g fill="#d3d6db">
+						<path d="M94.16667,46.42122l-66.57878,66.57878l66.57878,66.57877l14.125,-14.125l-43.03711,-43.0371h132.49544v-18.83333h-132.49544l43.03711,-43.03711z"></path>
+					</g>
+				</g>
+			</svg>
+		<% end %>
+	<% end %>
+	<div class='app-title <%= "user-title" if title != "ArcaneChats" %>'><span><%= title %></span></div>
+	<% if title == "ArcaneChats" %>
+		<div class="nav-btn">
+			<% if logged_in? %>
+				<%= link_to logout_path do %>
+					<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+						 width="34" height="34"
+						 viewBox="0 0 172 172"
+						 style=" fill:#000000;">
+						<g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-size="none" style="mix-blend-mode: normal">
+							<path d="M0,172v-172h172v172z" fill="none"></path>
+							<g fill="#171717">
+								<path d="M26.875,16.125v139.75h96.75v-31.24219l-5.87891,-5.71094l-4.53516,-4.70312h-0.33594v30.90625h-75.25v-118.25h75.25v31.24219l4.87109,-5.03906l5.87891,-5.71094v-31.24219zM125.47266,60.63672l-7.72656,7.72656l12.26172,12.26172h-65.50781v10.75h65.50781l-12.26172,12.26172l7.72656,7.72656l21.5,-21.5l3.69531,-3.86328l-3.69531,-3.86328z"></path>
+							</g>
+						</g>
+					</svg>
+				<% end %>
+			<% end %>
+		</div>
+	<% else %>
+		<div class="menu-btn" data-controller="dropdown">
+			<a>
+			<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+				 width="32" height="32"
+				 viewBox="0 0 172 172"
+				 style=" fill:#000000;">
+				<g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-size="none"  style="mix-blend-mode: normal">
+					<path d="M0,172v-172h172v172z" fill="none"></path>
+					<g fill="#d3d6db">
+						<path d="M86,18.8125c-7.42019,0 -13.4375,6.01731 -13.4375,13.4375c0,7.42019 6.01731,13.4375 13.4375,13.4375c7.42019,0 13.4375,-6.01731 13.4375,-13.4375c0,-7.42019 -6.01731,-13.4375 -13.4375,-13.4375zM86,72.5625c-7.42019,0 -13.4375,6.01731 -13.4375,13.4375c0,7.42019 6.01731,13.4375 13.4375,13.4375c7.42019,0 13.4375,-6.01731 13.4375,-13.4375c0,-7.42019 -6.01731,-13.4375 -13.4375,-13.4375zM86,126.3125c-7.42019,0 -13.4375,6.01731 -13.4375,13.4375c0,7.42019 6.01731,13.4375 13.4375,13.4375c7.42019,0 13.4375,-6.01731 13.4375,-13.4375c0,-7.42019 -6.01731,-13.4375 -13.4375,-13.4375z"></path>
+					</g>
+				</g>
+			</svg>
+			</a>
+		</div>
+	<% end %>
+</div>
+
+<div class="dummy-nav <%= "user-nav" if title != "ArcaneChats"%>">
+	<div class='app-title <%= "user-title" if title != "ArcaneChats" %>'><span>...</span></div>
+</div>
