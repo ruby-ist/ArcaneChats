@@ -1,24 +1,3 @@
-# README
+# ArcaneChats
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+ArcaneChats is a minimal chatting app I've created to figure out how the database designed and other backend structure should be designed for an messaging facility. It is created with `Rails` version 6 with a help of `turbolinks` and web sockets, and focused only on mobile view.
